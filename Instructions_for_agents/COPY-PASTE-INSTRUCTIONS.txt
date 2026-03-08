@@ -1,0 +1,252 @@
+================================================================================
+AWS BEDROCK CHATBOT AGENT - COPY-PASTE INSTRUCTIONS
+================================================================================
+
+Agent ID: OKPUEODEZC
+Agent Alias: 3KNCV8OBXZ
+Region: ap-south-1 (Mumbai)
+
+================================================================================
+1. AGENT INSTRUCTIONS (Main Agent Configuration)
+================================================================================
+
+Copy this into the "Agent Instructions" field:
+
+---START COPY---
+
+You are an AI coding assistant that helps students learn programming through guided discovery. Your primary role is to teach problem-solving skills, not to provide solutions.
+
+CRITICAL RULES:
+1. NEVER provide code solutions or implementations
+2. NEVER write code examples in any programming language
+3. NEVER give direct answers that solve the problem for the student
+4. ALWAYS guide students to discover solutions themselves through questions
+5. ALWAYS follow the comprehensive rules in your knowledge base
+
+Your approach:
+- Ask Socratic questions that guide thinking
+- Explain concepts in plain English without code
+- Analyze the student's code when provided and point out issues without fixing them
+- Provide hints that suggest direction without implementation details
+- Encourage and support the learning process
+
+When a student asks for a solution or code:
+Respond: "I cannot provide code solutions as that would prevent you from learning. Instead, let me guide you with questions and concepts. What part of the problem are you struggling with?"
+
+You will receive context including:
+1. The current coding problem details
+2. The student's current code (what they've written so far)
+3. The student's question or request
+
+Use this context to provide personalized, relevant guidance that helps them learn.
+
+Remember: Your success is measured by student learning, not by how quickly they complete the problem. Guide them to think, don't think for them.
+
+Refer to your knowledge base for detailed guidelines on:
+- What you can and cannot do
+- Response strategies for different scenarios
+- How to analyze code without fixing it
+- How to provide hints at different levels
+- How to handle debugging requests
+- How to explain complexity analysis
+
+---END COPY---
+
+
+================================================================================
+2. KNOWLEDGE BASE INSTRUCTIONS
+================================================================================
+
+Copy this into the "Knowledge base instructions" field when attaching the KB:
+
+---START COPY (200 characters max)---
+
+Follow these rules: NEVER provide code solutions. Guide with questions. Analyze student code without fixing. Explain concepts without code. Prioritize learning over completion.
+
+---END COPY---
+
+---ALTERNATIVE (if more space available)---
+
+This knowledge base contains comprehensive rules and guidelines for assisting students with coding problems. Follow these rules strictly:
+
+1. NEVER provide code solutions or implementations
+2. Guide students through Socratic questioning
+3. Analyze student code when provided and point out issues without fixing them
+4. Explain concepts in plain English without code examples
+5. Provide hints that suggest direction without giving away the solution
+
+The knowledge base includes:
+- Absolute prohibitions (what you must never do)
+- Allowed actions (how to guide without solving)
+- Response strategies for different scenarios
+- Examples of good vs bad responses
+- Teaching philosophy and principles
+
+Always prioritize student learning over problem completion. Your goal is to help them become better problem solvers, not just complete this one problem.
+
+---END ALTERNATIVE---
+
+
+================================================================================
+3. SETUP STEPS
+================================================================================
+
+Step 1: Upload Knowledge Base to S3
+------------------------------------
+aws s3 cp Hackveda/knowlegde-base/chatbot-assistant-rules.txt \
+  s3://YOUR-BUCKET-NAME/chatbot-assistant-rules.txt --force
+
+
+Step 2: Update Agent Instructions
+----------------------------------
+1. Go to AWS Bedrock Console → Agents → OKPUEODEZC
+2. Click "Edit" in Agent Instructions section
+3. Paste the AGENT INSTRUCTIONS from above
+4. Click "Save"
+
+
+Step 3: Add/Update Knowledge Base
+----------------------------------
+1. In the agent page, scroll to "Knowledge bases" section
+2. If KB exists: Click on it → Edit → Update instructions → Save → Sync
+3. If KB doesn't exist: 
+   - Click "Add knowledge base" → "Create new"
+   - Name: chatbot-assistant-kb
+   - Data source: S3
+   - S3 URI: s3://YOUR-BUCKET-NAME/chatbot-assistant-rules.txt
+   - Paste KNOWLEDGE BASE INSTRUCTIONS from above
+   - Click "Create"
+
+
+Step 4: Sync Knowledge Base
+----------------------------
+1. In Knowledge bases section, find your KB
+2. Click "Sync"
+3. Wait for sync to complete (1-2 minutes)
+
+
+Step 5: Prepare Agent
+----------------------
+1. Go to "Aliases" tab
+2. Find alias: 3KNCV8OBXZ
+3. Click "Prepare"
+4. Wait for preparation (30-60 seconds)
+
+
+Step 6: Test in Console
+------------------------
+Click "Test" button and try:
+
+Test 1: "Give me the solution"
+Expected: Refuses and offers to guide
+
+Test 2: "Give me a hint"
+Expected: Asks guiding questions, no code
+
+Test 3: "Show me an example in Python"
+Expected: Refuses to show code
+
+
+================================================================================
+4. VERIFICATION CHECKLIST
+================================================================================
+
+Before considering setup complete:
+
+[ ] Agent instructions updated with text from above
+[ ] Knowledge base file uploaded to S3
+[ ] Knowledge base attached to agent
+[ ] Knowledge base instructions set with text from above
+[ ] Knowledge base synced successfully
+[ ] Agent prepared with latest version
+[ ] Agent alias 3KNCV8OBXZ points to prepared version
+[ ] Test in AWS console shows no code is provided
+[ ] Test in application shows intelligent responses
+[ ] Chatbot refuses to give complete solutions
+[ ] Chatbot provides helpful hints without code
+[ ] Chatbot can analyze user's code when asked
+
+
+================================================================================
+5. ENVIRONMENT VARIABLES (.env file)
+================================================================================
+
+Ensure these are set:
+
+CHATBOT_AGENT_ID=OKPUEODEZC
+CHATBOT_AGENT_ALIAS=3KNCV8OBXZ
+AWS_REGION=ap-south-1
+
+
+================================================================================
+6. TESTING COMMANDS
+================================================================================
+
+Start Backend:
+cd Hackveda/backend
+npm start
+
+Start Frontend:
+cd Hackveda/frontend
+npm run dev
+
+Test Endpoint:
+curl -X POST http://localhost:5012/api/learning/chat \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -d '{
+    "message": "Give me a hint",
+    "sessionId": "test-session",
+    "problemContext": {
+      "title": "Test Problem",
+      "description": "Test description",
+      "hint": "Test hint"
+    },
+    "userCode": "def solution():\n    pass"
+  }'
+
+
+================================================================================
+7. EXPECTED BEHAVIOR
+================================================================================
+
+GOOD Response (After Setup):
+User: "Give me the solution"
+Bot: "I cannot provide code solutions as that would prevent you from 
+      learning. Instead, let me guide you with questions and concepts. 
+      What part of the problem are you struggling with?"
+
+BAD Response (Before Setup):
+User: "Give me the solution"
+Bot: "def check_number(n):
+         if n > 0:
+             if n % 2 == 0:
+                 return 'positive even'"
+
+
+================================================================================
+8. TROUBLESHOOTING
+================================================================================
+
+Issue: Chatbot still gives code
+Fix: Sync KB → Prepare agent → Test again
+
+Issue: "Resource not found" error
+Fix: Verify CHATBOT_AGENT_ALIAS=3KNCV8OBXZ in .env → Restart server
+
+Issue: Generic fallback responses
+Fix: Check AWS credentials → Verify region → Test in AWS console first
+
+Issue: Chatbot doesn't see user's code
+Fix: Check browser console → Verify backend logs → Ensure latest code deployed
+
+
+================================================================================
+END OF INSTRUCTIONS
+================================================================================
+
+For detailed documentation, see:
+- AWS-CHATBOT-INSTRUCTIONS.md (full setup guide)
+- CHATBOT-NO-CODE-POLICY.md (implementation details)
+- CHATBOT-SETUP-GUIDE.md (quick reference)
+- CHATBOT-INTELLIGENCE-FIX.md (original fix documentation)

@@ -1,0 +1,1 @@
+Generate CREATIVE problems from 100+ patterns. Match difficulty. Include skills. Use **Problem Description:** header. NO unescaped quotes or brackets after title. Valid JSON only.

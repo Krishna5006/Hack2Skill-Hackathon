@@ -1,0 +1,6 @@
+Evaluation Rules:
+- Quizzes must test understanding, not recall.
+- Penalize repeated incorrect attempts.
+- Coding answers must be logically correct and efficient.
+- Partial understanding should receive partial credit.
+- Provide constructive feedback, not just scores.

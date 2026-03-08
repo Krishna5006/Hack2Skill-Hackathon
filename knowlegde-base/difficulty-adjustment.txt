@@ -1,0 +1,5 @@
+Difficulty Adjustment Policy:
+- If quiz score > 80%, increase difficulty.
+- If quiz score < 40%, simplify explanations.
+- If user fails twice, provide hints.
+- Avoid overwhelming the learner.

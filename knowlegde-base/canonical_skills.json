@@ -1,0 +1,175 @@
+{
+  "skills": [
+    {
+      "id": "variables_basic",
+      "domain": "Programming Fundamentals",
+      "aliases": ["variables", "data storage", "assignment"]
+    },
+    {
+      "id": "data_types_basic",
+      "domain": "Programming Fundamentals",
+      "aliases": ["int", "float", "string", "boolean", "primitive types"]
+    },
+    {
+      "id": "operators_basic",
+      "domain": "Programming Fundamentals",
+      "aliases": ["arithmetic operators", "logical operators", "comparison operators"]
+    },
+    {
+      "id": "conditionals_basic",
+      "domain": "Programming Fundamentals",
+      "aliases": ["if else", "conditional statements", "branching"]
+    },
+    {
+      "id": "loops_basic",
+      "domain": "Programming Fundamentals",
+      "aliases": ["for loop", "while loop", "iteration", "range function"]
+    },
+    {
+      "id": "functions_basic",
+      "domain": "Programming Fundamentals",
+      "aliases": ["functions", "methods", "parameters", "return values"]
+    },
+
+    {
+      "id": "arrays_basic",
+      "domain": "Data Structures",
+      "aliases": ["arrays", "lists", "indexing", "array traversal"]
+    },
+    {
+      "id": "strings_basic",
+      "domain": "Data Structures",
+      "aliases": ["strings", "string manipulation"]
+    },
+    {
+      "id": "linked_lists",
+      "domain": "Data Structures",
+      "aliases": ["linked list", "nodes", "pointers"]
+    },
+    {
+      "id": "stacks",
+      "domain": "Data Structures",
+      "aliases": ["stack", "LIFO"]
+    },
+    {
+      "id": "queues",
+      "domain": "Data Structures",
+      "aliases": ["queue", "FIFO"]
+    },
+    {
+      "id": "hash_tables",
+      "domain": "Data Structures",
+      "aliases": ["hash map", "dictionary", "hashing"]
+    },
+    {
+      "id": "trees_basic",
+      "domain": "Data Structures",
+      "aliases": ["binary tree", "tree traversal"]
+    },
+    {
+      "id": "graphs_basic",
+      "domain": "Data Structures",
+      "aliases": ["graphs", "nodes and edges"]
+    },
+
+    {
+      "id": "sorting_algorithms",
+      "domain": "Algorithms",
+      "aliases": ["bubble sort", "merge sort", "quick sort"]
+    },
+    {
+      "id": "searching_algorithms",
+      "domain": "Algorithms",
+      "aliases": ["linear search", "binary search"]
+    },
+    {
+      "id": "recursion",
+      "domain": "Algorithms",
+      "aliases": ["recursive calls", "base case"]
+    },
+    {
+      "id": "dynamic_programming",
+      "domain": "Algorithms",
+      "aliases": ["dp", "memoization", "tabulation"]
+    },
+    {
+      "id": "greedy_algorithms",
+      "domain": "Algorithms",
+      "aliases": ["greedy strategy"]
+    },
+
+    {
+      "id": "time_complexity",
+      "domain": "CS Fundamentals",
+      "aliases": ["Big O", "time complexity", "performance analysis"]
+    },
+    {
+      "id": "space_complexity",
+      "domain": "CS Fundamentals",
+      "aliases": ["memory complexity", "space usage"]
+    },
+    {
+      "id": "memory_management",
+      "domain": "CS Fundamentals",
+      "aliases": ["heap", "stack memory", "garbage collection"]
+    },
+    {
+      "id": "pointers_basic",
+      "domain": "CS Fundamentals",
+      "aliases": ["pointers", "memory address", "dereferencing"]
+    },
+    {
+      "id": "oop_basic",
+      "domain": "CS Fundamentals",
+      "aliases": ["classes", "objects", "encapsulation", "inheritance"]
+    },
+
+    {
+      "id": "processes_threads",
+      "domain": "Operating Systems",
+      "aliases": ["process", "thread", "multithreading"]
+    },
+    {
+      "id": "scheduling",
+      "domain": "Operating Systems",
+      "aliases": ["CPU scheduling", "context switching"]
+    },
+    {
+      "id": "deadlocks",
+      "domain": "Operating Systems",
+      "aliases": ["deadlock", "resource starvation"]
+    },
+
+    {
+      "id": "sql_basic",
+      "domain": "Databases",
+      "aliases": ["SQL", "queries", "joins"]
+    },
+    {
+      "id": "normalization",
+      "domain": "Databases",
+      "aliases": ["database normalization"]
+    },
+    {
+      "id": "indexes_db",
+      "domain": "Databases",
+      "aliases": ["database indexing"]
+    },
+
+    {
+      "id": "http_basics",
+      "domain": "Web",
+      "aliases": ["HTTP", "requests", "responses"]
+    },
+    {
+      "id": "rest_api",
+      "domain": "Web",
+      "aliases": ["REST", "API design"]
+    },
+    {
+      "id": "authentication",
+      "domain": "Web",
+      "aliases": ["JWT", "OAuth", "authentication"]
+    }
+  ]
+}
